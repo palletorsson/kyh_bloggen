@@ -1,0 +1,53 @@
+/* MASTER CSS FILE  
+ Made by Christoffer Älvenstrand, Mario Onekanda
+ * */
+
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+
+html { 
+	background: #FFF;
+}
+
+body { 
+	margin: 0; 
+}
+
+/* ==|== primary styles =========================================== */
+   
+.wrapper {
+	width: 980px;
+	height: auto;
+}
+
+.header {
+	width: 980px;
+	height: 150px;
+}
+
+.nav {
+	
+}
+
+.container {
+	
+}
+
+.entries {
+	
+}
+
+article {
+	
+}
+
+aside {
+	
+}
+
+footer {
+	
+}
