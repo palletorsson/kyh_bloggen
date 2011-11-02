@@ -8,7 +8,7 @@
 <body>
 <div class="wrapper">
 	<header class="header">
-		<a href="index.php">Scrum Masters!</a>
+		<?php include_once ('include/logo.php'); ?>
 	</header> <!--här slutar header -->
 	<nav class="nav">
 		<?php
@@ -39,13 +39,13 @@
 			</article><!-- här slutar entrybox -->
 		</div><!-- här slutar entries -->
 		<aside class="categories">
-			
+			<?php include_once('include/categories.php');?>
 			
 		</aside><!-- här slutar categories -->	
 	</div><!-- här slutar container -->
 </div><!-- här slutar wrapper -->
 <footer class="footer">
-	<p>Design by: ScrumMasters &copy;2011</p>
+	<?php include_once ('include/footer.php'); ?>
 </footer><!-- här slutar footer -->
 </body>
 </html>
