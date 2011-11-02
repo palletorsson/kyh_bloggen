@@ -1,5 +1,5 @@
 <ul>
-	<li><a href="#">Startsida</a></li>
-	<li><a href="#">Skriv anonymt</a></li>
-	<li><a href="#">Logga in/logg ut</a></li>
+	<li><a href="index.php">Startsida</a></li>
+	<li><a href="write.php">Skriv anonymt</a></li>
+	<li><a href="loggin.php">Logga in/logg ut</a></li>
 </ul>		
