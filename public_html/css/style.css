@@ -33,6 +33,17 @@ body {
 	height: 100px;
 	padding: 5px;
 }
+.header p{
+	text-align: center;
+}
+.header h1 a{
+	margin: 0;
+	padding:0;
+	color: #fff;
+}
+.header h1 a:hover{
+	color: #333;
+}
 
 .nav {
 	background: #FFF;
@@ -78,9 +89,34 @@ body {
 	background: #000;
 	color: #FFF;
 	height: 450px;
-	width: 220px;
+	width: 215px;
 	margin: 0;
+	padding-left: 5px;
+}
+.categories h1 {
+	color: #fff;
+	margin: 0px;
+	padding: 20px 5px 10px 7px;	
+}
+
+.categories ul {
 	padding: 0;
+	margin: 0;
+	display: block;
+}	
+
+.categories li {
+	list-style: none;
+}
+
+.categories a {
+	color: #fff;
+	margin: 10px;
+	padding: 0px;	
+}
+.categories a:hover {
+	color: #333;
+	text-decoration: underline	
 }
 
 .entries {
@@ -103,7 +139,13 @@ aside {
 	width: 220px;
 }
 
-footer {
-	margin-left: 0;
-	margin-right: 0;
+.footer {
+	margin: 0 auto;
+	width: 300px;
+	color: #000;
+	padding: 10px;
+}
+
+footer p {
+	text-align: center;
 }
