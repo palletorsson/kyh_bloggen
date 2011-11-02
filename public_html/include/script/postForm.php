@@ -3,7 +3,8 @@
 	if (isset($_POST["post"]))
 	{
 		$con = mysql_connect("localhost","root","");
-		//kommentar här
+		//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
+		//Fungerar inte anslutningen dödar vi den.
 		if (!$con)
 		{
 	    	die('Could not connect: ' . mysql_error());
@@ -12,7 +13,8 @@
 		mysql_select_db("scrummasterdb", $con);
 		
 		$sql="INSERT INTO blog_post (post) VALUES ('$_POST[post]')";	
-		//kommentar här
+		//Här säger vi åt den att inserta till vårat table blog_post och undervärdet post
+		//som kommer att vara blogginläggen.
 		if (!mysql_query($sql,$con))
 		  {
 		  die('Error: ' . mysql_error());
@@ -24,7 +26,7 @@
 	
 	else {
 ?>
-<!--kommentar här -->
+<!--Här är formuläret med en textarea  -->
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<textarea name="post" cols="40" rows="12" style="resize: none;"></textarea>
 	<br/>
