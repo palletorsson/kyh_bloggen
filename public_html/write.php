@@ -14,8 +14,9 @@
 	<div class="container">
 		<div class="entries">
 			<div class="post-anonym">
-				
-				
+				<?php
+				include_once ('include/script/postForm.php');
+				?>
 			</div><!-- här slutar post-anonym -->
 		</div><!-- här slutar entries -->
 		<aside class="categories">
