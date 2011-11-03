@@ -11,9 +11,9 @@
 	    }
 		
 		mysql_select_db("scrummasterdb", $con);
-		
-		$sql="INSERT INTO blog_post (post) VALUES ('$_POST[post]')";	
 		//Här säger vi åt den att inserta till vårat table blog_post och undervärdet post
+		$sql="INSERT INTO blog_post (post) VALUES ('$_POST[post]')";	
+		
 		//som kommer att vara blogginläggen.
 		if (!mysql_query($sql,$con))
 		  {
