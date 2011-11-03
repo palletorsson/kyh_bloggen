@@ -14,11 +14,9 @@
 	<div class="container">
 		<div class="entries">
 			<div class="loggin" align="center">
-				<form method="POST">
-					<p>Username: <input type="text" name="username" /><br />
-					Password: <input type="password" name="passwort" /><br />
-					<input type="submit" value="Login" /></p>
-				</form>
+				<?php
+				include_once ('include/script/login.php');
+				?>
 			</div><!-- här slutar loggin -->
 		</div><!-- här slutar entries -->
 		<aside class="categories">
