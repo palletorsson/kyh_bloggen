@@ -13,7 +13,6 @@ session_start();
 	    }
 		
 		mysql_select_db("scrummasterdb", $con);
-		echo $_SESSION['session_user'];
 		if (isset( $_SESSION['session_user'])) {
 			$tempUserName = $_SESSION['session_user'];
 			$sql="INSERT INTO blog_post (post, namn) VALUES ('$_POST[post]', '$tempUserName')";
