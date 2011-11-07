@@ -4,13 +4,7 @@ session_start();
 	if (isset($_POST["post"]))
 	{
 		//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
-		$con = mysql_connect("localhost","root","");
-		
-		//Fungerar inte anslutningen dödar vi den.
-		if (!$con)
-		{
-	    	die('Could not connect: ' . mysql_error());
-	    }
+		include_once ('dbconnect.php');
 		
 		mysql_select_db("scrummasterdb", $con);
 		if (isset( $_SESSION['session_user'])) {
