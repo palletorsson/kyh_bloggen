@@ -1,10 +1,14 @@
 <?php
-session_start();
+	session_start();
+	include_once ('dbconnect.php');
+	mysql_select_db("scrummasterdb", $con);
+	$sql="SELECT * FROM categories";
+	$result = mysql_query($sql, $con) or die(mysql_error());
+	$row_cat = mysql_fetch_assoc($result);
 	//Här kommer posten att läggas till i databasen om en post är gjort
 	if (isset($_POST["post"]))
 	{
 		//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
-		include_once ('dbconnect.php');
 		
 		mysql_select_db("scrummasterdb", $con);
 		if (isset( $_SESSION['session_user'])) {
@@ -31,6 +35,13 @@ session_start();
 <!--Här är formuläret med en textarea  -->
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	<textarea name="post" cols="40" rows="12" style="resize: none;"></textarea>
+<select name="cat">
+<?php	do {  
+?>
+        <option value="<?php echo $row_cat['id']?>" ><?php echo $row_cat['categori']?></option>
+        <?php
+} while ($row_cat = mysql_fetch_assoc($result));
+?></select>
 	<br/>
 	<input type="submit" value="post"/>
 </form>
