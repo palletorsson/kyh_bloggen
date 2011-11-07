@@ -2,5 +2,5 @@
 <ul>
 	<li><a href="#">Träning</a></li>
 	<li><a href="#">Spel</a></li>
-	<li><a href="#"Träning>Mode</a></li>
+	<li><a href="#">Mode</a></li>
 </ul>

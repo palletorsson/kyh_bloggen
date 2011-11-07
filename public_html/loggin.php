@@ -1,4 +1,4 @@
-<!DOCTYPE HTML5>
+<!DOCTYPE HTML>
 <html>
 <head>
 	<?php include_once ('include/script/head.php');?>
@@ -13,7 +13,7 @@
 	</nav> <!--här slutar nax -->
 	<div class="container">
 		<div class="entries">
-			<div class="loggin" align="center">
+			<div class="loggin">
 				<?php
 				include_once ('include/script/login.php');
 				?>
