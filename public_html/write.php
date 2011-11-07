@@ -11,18 +11,16 @@
 	<nav class="nav">
 		<?php include_once('include/script/menu.php');?>		
 	</nav> <!--här slutar nax -->
-	<div class="container">
+		<div class="aside">
+			<?php include_once('include/script/categories.php');?>
+		</div><!-- här slutar categories -->
 		<div class="entries">
 			<div class="post-anonym">
 				<?php
-				include_once ('include/script/postForm.php');
+					include_once ('include/script/postForm.php');
 				?>
 			</div><!-- här slutar post-anonym -->
 		</div><!-- här slutar entries -->
-		<aside class="categories">
-			<?php include_once('include/script/categories.php'); ?>
-			
-		</aside><!-- här slutar categories -->	
 	</div><!-- här slutar container -->
 </div><!-- här slutar wrapper -->
 <footer class="footer">

@@ -8,11 +8,8 @@ a:hover { color: #06e; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
-html { 
+html, body {
 	background: #FFF;
-}
-
-body { 
 	font-family: arial, sans-serif, serif;
 	font-size: 14px;
 }
@@ -22,9 +19,9 @@ body {
 .wrapper {
 	background: #333;
 	color: #FFF;
-	height: auto;
 	width: 980px;
-	margin: 0 auto;
+	margin-right: auto;
+	margin-left: auto;
 	border: 1px solid black;
 }
 
@@ -76,32 +73,18 @@ body {
 	background: #000;
 }
 
-
-.container {
-	background: #333;
-	color: #FFF;
-	height: 450px;
-	width: 980px;
-	padding-left: 5px;	
+.clear {
+	clear: both;
 }
 
-.categories {
-	background: #000;
-	color: #FFF;
-	height: 450px;
-	width: 215px;
-	margin: 0;
-	padding-left: 5px;
-}
+
 .categories h1 {
 	color: #fff;
-	margin: 0px;
 	padding: 20px 5px 10px 7px;	
 }
 
 .categories ul {
 	padding: 0;
-	margin: 0;
 	display: block;
 }	
 
@@ -120,22 +103,35 @@ body {
 }
 
 .entries {
-	float: left;
 	height: auto;
 	width: 700px;
+	margin-right: 0px;
+}
+
+.loggin {
+	height: 450px;
+	width: 700px;
+	margin-right: 0px;
+}
+
+.post-anonym {
+	height: 450px;
+	width: 700px;
+	margin-right: 0px;
 }
 
 article {
 	background:#000;
 	color: #FFF;
-	float: left;
-	height: 450px;
-	width: 700px;
+	height: auto;
+	width: 650px;
 }
 
-aside {
+.aside {
+	background: #000;
+	color: #FFF;
 	float: right;
-	height: auto;
+	height: 450px;
 	width: 220px;
 }
 
