@@ -1,4 +1,4 @@
-<!DOCTYPE HTML5>
+<!DOCTYPE HTML>
 <html>
 <head>
 	<?php include_once ('include/script/head.php');?>		
