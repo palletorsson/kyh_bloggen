@@ -15,7 +15,7 @@
 		<div class="entries">
 			<article class="entrybox">
 				<?php
-				include_once ('include/script/viewpost.php')
+				include_once ('include/script/viewpost.php');
 				?>
 			</article><!-- här slutar entrybox -->
 		</div><!-- här slutar entries -->
