@@ -17,11 +17,7 @@
 		<div class="entries">
 			<article>
 				<?php
-<<<<<<< HEAD
 					include_once ('include/script/viewpost.php')
-=======
-				include_once ('include/script/viewpost.php');
->>>>>>> ee207e1580657efc7d04a36143f07102c332aed0
 				?>
 			</article><!-- här slutar entrybox -->
 		</div><!-- här slutar entries -->
