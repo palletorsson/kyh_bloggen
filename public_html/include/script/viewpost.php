@@ -7,7 +7,10 @@
 	//väljer tabelen och sorteras efter descending id
 	$sql = mysql_query("SELECT * FROM blog_post ORDER by id DESC");
 	//går igensom tabelen och skriver ut posterna
-	while($result = mysql_fetch_array($sql)) {
+	$num_rows = mysql_num_rows($sql);
+	echo "Det finns " .$num_rows. " poster i databasen <br />";
+	
+while($result = mysql_fetch_array($sql)) {
 		echo $result[2] . "<br/>";
 		echo $result[1] . " <br/>";	
 		
@@ -23,7 +26,7 @@
 			</form>
 			</td>
 			<td>
-			<form action="postFormUpdate.php" method="post">
+			<form action="update.php" method="post">
 				<input name="redigera" type="hidden" value=<?php echo $result[0]; ?> />
 				<input type="submit" value="redigera"/>
 			</form>
