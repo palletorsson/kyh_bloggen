@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2011 at 01:27 PM
+-- Generation Time: Nov 07, 2011 at 03:00 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `scrummasterdb`
 --
-CREATE DATABASE `scrummasterdb` DEFAULT CHARACTER SET swe7 COLLATE swe7_bin;
+CREATE DATABASE `scrummasterdb` DEFAULT CHARACTER SET utf8 COLLATE utf8_swedish_ci;
 USE `scrummasterdb`;
 
 -- --------------------------------------------------------
@@ -31,21 +31,32 @@ USE `scrummasterdb`;
 CREATE TABLE IF NOT EXISTS `blog_post` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id key',
   `post` longtext COLLATE utf8_swedish_ci NOT NULL COMMENT 'post inlägget',
-  `namn` text CHARACTER SET utf8mb4 COLLATE utf8mb4_swedish_ci NOT NULL,
+  `idnamn` int(11) NOT NULL,
+  `datum` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `blog_post`
+-- Table structure for table `user`
 --
 
-INSERT INTO `blog_post` (`id`, `post`, `namn`) VALUES
-(5, 'test 111', 'Anonym'),
-(6, 'test 111', 'Anonym'),
-(7, 'test 333', 'Anonym'),
-(11, 'test 7777', 'Anonym'),
-(12, 'noughsndfog hseÃ¶gsnhvnseoghsogvuish gsoghsogsheg oshgshosgg odfhgofghfÃ¶gÃ¶sdfggsgsdÃ¶fg sdgsgkfgjsfjksfvskfksdvÃ¶skjd vfkvsvsjkvsjkfsvvsvks nbfknbjfkgbfÃ¶gbngÃ¶jfdfÃ¶gf gÃ¶dfjÃ¶dgfbdjdgÃ¶', 'Anonym'),
-(14, 'sdfghsdfoghsdoghd', 'Anonym');
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `username` text CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `password` text CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `email` text CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `website` text CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=swe7 COLLATE=swe7_bin AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `website`) VALUES
+(1, 'scrummaster\r\n', '1234test', 'info@scrummaster.com', 'http://www.scrummaster.com');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
