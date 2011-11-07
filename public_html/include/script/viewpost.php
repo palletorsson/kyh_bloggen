@@ -21,14 +21,14 @@
 		<table>
 			<tr>
 				<td>
-		<form action="<raderapost.php>" method="post">
-			<input namn="radera" type="hidden" value=<?php echo $result[0]; ?>" />
+		<form action="raderapost.php" method="post">
+			<input name="radera" type="hidden" value=<?php echo $result[0]; ?> />
 			<input type="submit" value="radera"/>
 		</form>
 		</td>
 		<td>
 		<form action="postFormUpdate.php" method="post">
-			<input namn="redigera" type="hidden" value=<?php echo $result[0]; ?>" />
+			<input name="redigera" type="hidden" value=<?php echo $result[0]; ?> />
 			<input type="submit" value="redigera"/>
 		</form>
 		</td>
