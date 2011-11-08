@@ -1,6 +1,7 @@
 <h1>Kategorier</h1>
 <ul>
-	<li><a href="#">Träning</a></li>
-	<li><a href="#">Spel</a></li>
-	<li><a href="#">Mode</a></li>
+	<li><a href="#">Klagomål</a></li>
+	<li><a href="#">Beröm</a></li>
+	<li><a href="#">Önskemål</a></li>
+	<li><a href="#">Snick-snack</a></li>
 </ul>
