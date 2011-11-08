@@ -1,29 +1,89 @@
-<?php
-session_start();
-    if(isset($_POST['username'])){
-    	if($_POST['username'] == "scrummaster" && $_POST['password'] == "1234test"){
+<?php if (!isset($_POST['submit'])) { ?>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+ <table>
+   <tr>
+	 <td>Username:</td>
+	 <td>
+	   <input type="text" name="username" maxlength="30" value="username" />
+	 </td>
+   </tr>
+   <tr>
+	 <td>Password:</td>
+	 <td>
+	   <input type="password" name="password" maxlength="30" value="" />
+	 </td>
+   </tr>
+   <tr>
+	 <td colspan="2">
+	   <input type="submit" name="submit" value="Login" />
+	 </td>
+   </tr>
+ </table>
+</form>
 
-	  		 $_SESSION['session_login'] = 1;  
+<?php
+}
+//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
+    include_once ('dbconnect.php');
+	//väljer databasen	
+	mysql_select_db("scrummasterdb", $con);
+
+// check if the user and password is ok   
+   function authenticate($username, $password) {
+	global $con;
+    $username = mysql_real_escape_string($username);
+    $password = mysql_real_escape_string($password);
 	
-	  		 $_SESSION['session_user'] = $_POST['username'];
+// Här väljer den värden ifrån tabellen users,  
+    $sql  = "SELECT * FROM user ";
+    $sql .= "WHERE username = '$username' ";
+    $sql .= "AND password = '$password' ";
+    $sql .= "LIMIT 1";
+    $result = mysql_query($sql, $con) or die(mysql_error());
 	
-	   		echo "Nu är du inloggad som ".$_POST['username'];
-	
-    	}
-		
-		else{
-			echo "Fel inloggingsuppgifter";
-		}
-   		} 
+	$row = mysql_fetch_assoc($result);
+	$username = $row['id'];
+	return $username; 
     
-else {
+   }
 ?>
+<?php 
+if (isset($_POST['submit'])) { // Form has been submitted.
+	
+ $username = trim($_POST['username']);
+ $password = trim($_POST['password']);
+// Check database to see if username/password exist.
+   $found_user = authenticate($username, $password);
+  
+// check if  function authenticate got a name
 
-	<form method="POST">
-		<p>Username: <input type="text" name="username" /><br />
-		Password: <input type="password" name="password" /><br />
-		<input type="submit" value="Login" /></p>
-	</form>
-<?php
+ if ($found_user != NULL) {
+
+	$sql  = "SELECT * FROM user ";
+    $sql .= "WHERE id = '$found_user'";
+    $sql .= "LIMIT 1";
+    $result = mysql_query($sql, $con) or die(mysql_error());
+	
+	$user = mysql_fetch_assoc($result);
+	$user = $user['username'];
+
+	session_start();
+	$_SESSION['session_login'] = 1;  
+	$_SESSION['session_user'] = $found_user;
+
+      echo $user . " now logged in ";
+  
+ } else {
+
+    // username/password combo was not found in the database
+
+    $message = "Username/password combination incorrect.";
+    echo $message;  
+}
+} else { // Form has not been submitted.
+
+ $username = "";
+ $password = "";
+
 }
 ?>
