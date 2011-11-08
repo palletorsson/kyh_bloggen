@@ -26,11 +26,11 @@ while($result = mysql_fetch_array($sql)) {
 			</form>
 			</td>
 			<td>
-<<<<<<< HEAD
+
 			<form action="postFormUpdate.php" method="post">
-=======
+
 			<form action="update.php" method="post">
->>>>>>> 0ca9ceb1729a750677d41dd97edc1a3b5f6ca222
+
 				<input name="redigera" type="hidden" value=<?php echo $result[0]; ?> />
 				<input type="submit" value="redigera"/>
 			</form>
