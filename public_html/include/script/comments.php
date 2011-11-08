@@ -1,7 +1,9 @@
-<a href="comments.php?blog_id=1">blogpost 1</a>
 
 <?
+	$blog_post = 0;
+ if (isset($_GET["blog_id"])){
 	$blog_post = $_GET["blog_id"];
+ }
 	include_once ('dbconnect.php');
 	mysql_select_db("scrummasterdb", $con);
 	$sql="SELECT * FROM comments WHERE blog_id = '$blog_post'";

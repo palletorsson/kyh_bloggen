@@ -42,6 +42,14 @@
 					<input type="submit" value="redigera"/>
 				</form>
 				</td>
+				<td>
+					<?php
+
+					echo"<a href=comments.php>Kommentera</a>";
+					?>
+			
+					
+				</td>
 				</tr>
 				</table>
 				
