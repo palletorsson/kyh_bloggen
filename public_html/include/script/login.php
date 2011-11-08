@@ -1,4 +1,17 @@
-<?php if (!isset($_POST['submit'])) { ?>
+<?php 
+session_start();
+if (isset($_SESSION['session_user'])){
+?>
+	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><input type='submit' name='logout' value='Logga ut'></form>
+<?php
+	if (isset($_POST['logout'])){
+		session_destroy();
+		header("location: loggin.php");
+	}
+}
+elseif (!isset($_POST['submit'])){
+
+?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
  <table>
    <tr>
@@ -67,7 +80,6 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 	$user = mysql_fetch_assoc($result);
 	$user = $user['username'];
 
-	session_start();
 	$_SESSION['session_login'] = 1;  
 	$_SESSION['session_user'] = $found_user;
 
