@@ -3,8 +3,7 @@ session_start();
 include_once ('dbconnect.php');
 mysql_select_db("scrummasterdb", $con);
 $sql="SELECT * FROM categories";
-$result = mysql_query($sql, $con) or die(mysql_error());
-$row_cat = mysql_fetch_assoc($result);
+$result_c = mysql_query($sql, $con) or die(mysql_error());
 
 	//Här kommer posten att läggas till i databasen om en post är gjort
 	if (isset($_POST["post"]))
@@ -22,7 +21,7 @@ $row_cat = mysql_fetch_assoc($result);
 		$id =  $_POST["id"];
 		
 		echo $id." - ".$post;
-		$sql="UPDATE blog_post SET title='$title', post='$post', post='$category' WHERE id='$id'";
+		$sql="UPDATE blog_post SET title='$title', post='$post', category='$category' WHERE id='$id'";
 		//som kommer att vara blogginläggen.
 		if (!mysql_query($sql,$con))
 		  {
@@ -45,12 +44,13 @@ $row_cat = mysql_fetch_assoc($result);
 <!--Här är formuläret med en textarea  -->
 <fieldset>
   <legend>Uppdatera blogposten:</legend>
+
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	Title <span class="title"><input type="text" name="title" value="<?php echo $row['title']; ?>"/></span><br />
 	Bloginnehåll <textarea name="post" cols="40" rows="12" style="resize: none;"><?php echo $row['post']; ?></textarea><br />
 	Kategori <span class="submit"> <select name="category" charset="UTF-8">
-	<?php while ($row_cat = mysql_fetch_assoc($result)) {  ?>
-    <option value="<?php echo $row_cat['id']; ?>" ><?php echo $row_cat['category']; ?></option>
+	<?php while ($row_cat = mysql_fetch_assoc($result_c)) {  ?>
+    <option value="<?php echo $row_cat['id']; ?>" ><?php echo $row_cat['categori']; ?></option>
     <?php } // TODO add sellected value ?> 
     </select></span><br/>
 	<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
