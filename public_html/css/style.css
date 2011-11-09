@@ -9,7 +9,7 @@ a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
 html, body {
-	background: #FFF;
+	background-image: url(../img/bg.png);
 	font-family: arial, sans-serif, serif;
 	font-size: 14px;
 }
@@ -17,7 +17,7 @@ html, body {
 /* ==|== primary styles =========================================== */
    
 .wrapper {
-	background: #333;
+	background: #FFF;
 	color: #FFF;
 	width: 980px;
 	margin-right: auto;
@@ -26,24 +26,14 @@ html, body {
 }
 
 .header {
-	background: #000;
-	height: 100px;
+	background-image: url(../img/header.png);
+	height: 90px;
 	padding: 5px;
-}
-.header p{
-	text-align: center;
-}
-.header h1 a{
-	margin: 0;
-	padding:0;
-	color: #fff;
-}
-.header h1 a:hover{
-	color: #333;
 }
 
 .nav {
 	background: #FFF;
+	border-bottom: 1px solid black;
 	height: 30px;
 	padding-left: 5px;
 	width: 975px;
@@ -98,14 +88,15 @@ html, body {
 	padding: 0px;	
 }
 .categories a:hover {
-	color: #333;
+	color: #FFF;
 	text-decoration: underline	
 }
 
 .entries {
+	border-right: 1px solid black;
 	height: auto;
+	margin-left: 5px;
 	width: 700px;
-	margin-right: 0px;
 }
 
 .loggin {
@@ -121,18 +112,18 @@ html, body {
 }
 
 article {
-	background:#000;
-	color: #FFF;
+	background:#FFF;
+	color: #000;
 	height: auto;
 	width: 650px;
 }
 
 .aside {
-	background: #000;
-	color: #FFF;
+	background: #FFF;
+	color: #000;
 	float: right;
 	height: 450px;
-	width: 220px;
+	width: 250px;
 }
 
 .footer {

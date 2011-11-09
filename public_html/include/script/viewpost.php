@@ -62,6 +62,7 @@
 			}
 		}
 		echo "<br/>";
+		echo "<hr size='1' color='#000000' width='75%'><br/>";
 	}	
 	//stänger serverkopplingen
 	mysql_close($con);
