@@ -9,19 +9,18 @@ echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>"  ?>
 <channel>  
 <title>KYH blogg</title>  
 <description>The KYH Blogg</description>  
-<link>The URL to the website</link>
+<link>/</link>
 <?php 
-$sql = "SELECT * FROM blog_post ";    
+$sql = "SELECT * FROM blog_post ORDER by id DESC LIMIT 5";    
 $result = mysql_query($sql, $con) or die(mysql_error());  
 while ($blog = mysql_fetch_array($result)) {       
 ?> 
        <item>  
           <title><?php echo $blog['title']; ?></title>  
           <description><![CDATA[<?php echo $blog['post']; ?> ]]></description>  
-          <link>http://www.mysite.com/pososts.php?id=<?php echo $blog['id']; ?></link>  
+          <link>http://www.mysite.com/detail.php?id=<?php echo $blog['id']; ?></link>  
           <pubDate><?php echo $blog['datum']; ?> GMT</pubDate>  
       </item> 
 <?php }  ?>
-
-</channel>  
-</rss>  
+</channel> 
+</rss>
