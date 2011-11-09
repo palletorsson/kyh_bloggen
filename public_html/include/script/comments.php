@@ -8,7 +8,8 @@
 	mysql_select_db("scrummasterdb", $con);
 	$sql="SELECT * FROM comments WHERE blog_id = '$blog_post'";
 	$result = mysql_query($sql, $con) or die(mysql_error());
-
+	$all_rows = mysql_num_rows($result); 
+	
 // 	$row_comment = mysql_fetch_assoc($result);
 	//Här kommer posten att läggas till i databasen om en post är gjort
 	if (isset($_POST["submit"]))
@@ -27,7 +28,7 @@
 	}
 ?>
 <fieldset>
-  <legend>Skriv en kommentar:</legend>
+  <legend>Skriv en kommentar: (Det finns <?php echo $all_rows; ?> kommentarer till posten) </legend>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="commentform">
 Ditt namn <input id="author" name="author" type="text" value="" size="30"/><br />
 Kommentar <textarea id="comment" name="body" cols="45" rows="8" "></textarea><br />

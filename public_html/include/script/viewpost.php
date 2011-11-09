@@ -4,6 +4,10 @@
     include_once ('dbconnect.php');
 	//väljer databasen	
 	mysql_select_db("scrummasterdb", $con);
+	$sql="SELECT * FROM comments";
+	$result_comments = mysql_query($sql, $con) or die(mysql_error());
+	$all_rows = mysql_num_rows($result_comments); 
+
 	//väljer tabelen och sorteras efter descending id
 	if(isset($_GET["cat"])){
 		$sql = mysql_query("SELECT * FROM blog_post LEFT JOIN user ON blog_post.idnamn = user.id WHERE category = $_GET[cat] ORDER BY blog_post.id DESC") or die(mysql_error());
@@ -11,7 +15,7 @@
 	else{
 		$sql = mysql_query("SELECT * FROM blog_post LEFT JOIN user ON blog_post.idnamn = user.id ORDER BY blog_post.id DESC") or die(mysql_error());
 		$num_rows = mysql_num_rows($sql);
-		echo "Det finns " .$num_rows. " inlägg i databasen <br /><br /><br />";
+		echo "Det finns " .$num_rows. " inlägg i databasen och ". $all_rows. " kommentarer <br /><br /><br />";
 	}	
 	//går igensom tabelen och skriver ut posterna
 	
