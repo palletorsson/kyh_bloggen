@@ -10,10 +10,11 @@
 	}
 	else{
 		$sql = mysql_query("SELECT * FROM blog_post LEFT JOIN user ON blog_post.idnamn = user.id ORDER BY blog_post.id DESC") or die(mysql_error());
+		$num_rows = mysql_num_rows($sql);
+		echo "Det finns " .$num_rows. " inlägg i databasen <br /><br /><br />";
 	}	
 	//går igensom tabelen och skriver ut posterna
-	$num_rows = mysql_num_rows($sql);
-	echo "Det finns " .$num_rows. " poster i databasen <br /><br /><br />";
+	
 	
 	//går igensom databasen för att skiva ut alla inlägg
 		while($result = mysql_fetch_array($sql)) {		
