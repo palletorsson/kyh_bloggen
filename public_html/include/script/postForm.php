@@ -40,7 +40,7 @@
     <option value="<?php echo $row_cat['id']?>" ><?php echo $row_cat['categori']?></option>
     <?php } while ($row_cat = mysql_fetch_assoc($result));?>
     </select></span><br/>
-    <input type="checkbox" name="public" value="1"  checked="yes"/> publisera <br />
+    <input type="checkbox" name="public" value="1"  checked="yes"/> kryssa i för att publisera nu <br />
 	<input type="submit" value="Publicera" class="submit" />
 	</form>
 </fieldset>	

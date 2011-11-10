@@ -80,4 +80,4 @@ return $rows;
   $sql .= " LIMIT 1";
   return ($sql) ? true : false;
 }
-?>
+

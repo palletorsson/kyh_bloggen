@@ -2,8 +2,14 @@
 $sql="SELECT * FROM categories";
 $result_c = mysql_query($sql, $con) or die(mysql_error());
 	//Här kommer posten att läggas till i databasen om en post är gjort
+	
 	if (isset($_POST["post"]))
 	{
+	if (isset($_POST["public"])) {
+			$public = "1";
+		} else {
+			$public = "0";
+		}
 		//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
 		//Fungerar inte anslutningen dödar vi den.
 		if (!$con)
@@ -15,7 +21,7 @@ $result_c = mysql_query($sql, $con) or die(mysql_error());
 		$category =  $_POST["category"];
 		$id =  $_POST["id"];	
 		echo $id." - ".$post;
-		$sql="UPDATE blog_post SET title='$title', post='$post', category='$category' WHERE id='$id'";
+		$sql="UPDATE blog_post SET title='$title', post='$post', category='$category', public='$public' WHERE id='$id'";
 		//som kommer att vara blogginläggen.
 		if (!mysql_query($sql,$con))
 		  {
@@ -43,9 +49,20 @@ $result_c = mysql_query($sql, $con) or die(mysql_error());
     <option value="<?php echo $row_cat['id']; ?>" ><?php echo $row_cat['categori']; ?></option>
     <?php } // TODO add sellected value ?> 
     </select></span><br/>
+    <?php
+    $isPublic = TRUE;
+    if($row["public"] == 0){
+		$isPublic = FALSE;
+	}
+    if(!$isPublic){
+		?>
+		<input type="checkbox" name="public" value="1"  checked="yes"/> kryssa i för att publisera nu <br />
+		<?php
+	}
+	?>
 	<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 	<br/>
-	<input type="submit" value="post"/>
+	<input type="submit" value="Publicera"/>
 </form>
 </fieldset>
 <?php } ?>
