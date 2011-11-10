@@ -28,13 +28,13 @@
 <fieldset>
   <legend>Publicera ett blogginlägg:</legend>
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-	Rubrik<br /><span class="title"><input type="text" name="title" /></span><br />
-	Blogginnehåll<br /><textarea name="post" cols="40" rows="12" style="resize: none;" class="textarea" ></textarea><br />
-	Kategori<span class="submit"><select name="category">
+	Rubrik<br /><span class="title"><input type="text" name="title" placeholder="Mitt blogginlägg" /></span><br />
+	Blogginnehåll<br /><textarea name="post" cols="40" rows="12" style="resize: none;" class="textarea" placeholder="Min bloggtext." ></textarea><br />
+	Kategori: <span class="submit"><select name="category">
 	<?php	do {  ?>
     <option value="<?php echo $row_cat['id']?>" ><?php echo $row_cat['categori']?></option>
     <?php } while ($row_cat = mysql_fetch_assoc($result));?>
-    </select></span><br/>
+	</select></span><br/><br/>
 	<input type="submit" value="Publicera" class="submit" />
 	</form>
 </fieldset>	
