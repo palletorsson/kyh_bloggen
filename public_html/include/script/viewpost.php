@@ -12,24 +12,38 @@
 	if (isset($_GET['cat'])){
 	$sql = mysql_query("SELECT * FROM categories WHERE id = $_GET[cat]") or die(mysql_error());
 	$cat_name = mysql_fetch_array($sql); 
+	
 	echo "<h3>Kategori: ".$cat_name["categori"]." </h3><br />";  
-	} else {
+	}
+	else 
+	{
 	echo "Det finns " .$num_rows. " inlägg och ". $all_rows. " kommentarer i databasen.<br /><br /><br />";	
-		}
+	}
 	if (isset($_GET['pagenumber'])){
 	$startFromRow = ($_GET['pagenumber'] - 1) * 5; 
 	} 
 	else {
 	$startFromRow = 0;  
 	} 
-	if(isset($_GET["cat"])){ echo $_GET["cat"]; 
+	if(isset($_GET["cat"])){
+		
+		$sql = mysql_query("SELECT * FROM blog_post 
+							LEFT JOIN user 
+							ON blog_post.idnamn = user.id 
+							WHERE category = $_GET[cat] AND public = 1 
+							ORDER BY blog_post.id DESC") or die(mysql_error());
+		
+		$num_rows = mysql_num_rows($sql);
+		
 		$sql = mysql_query("SELECT * FROM blog_post 
 							LEFT JOIN user 
 							ON blog_post.idnamn = user.id 
 							WHERE category = $_GET[cat] AND public = 1 
 							ORDER BY blog_post.id DESC LIMIT $startFromRow, 5") or die(mysql_error());
+							
+							
 	}
-	else{ echo "test3"; 
+	else{
 		$sql = mysql_query("SELECT * FROM blog_post 
 							LEFT JOIN user 
 							ON blog_post.idnamn = user.id 
@@ -84,10 +98,17 @@
 		echo "<br/>";
 		echo "<br/><hr />";
 	}	
+	echo "Sida:";
 	$page = "0";
+	
 	for($i = 0; $i <= (($num_rows - 1) / 5); $i++){
 		$page = $i + 1;
-		echo "<a href=\"index.php?pagenumber=".$page."\"> ".$page."</a>";
+		if(isset($_GET["cat"])){
+			echo "<a href=\"index.php?pagenumber=".$page."&cat=". $_GET["cat"] ."\"> ".$page."</a>";
+		}
+		else {	
+			echo "<a href=\"index.php?pagenumber=".$page."\"> ".$page."</a>";
+		}
 	}
 	
 ?>

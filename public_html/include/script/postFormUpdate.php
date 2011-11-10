@@ -56,7 +56,7 @@ $result_c = mysql_query($sql, $con) or die(mysql_error());
 	}
     if(!$isPublic){
 		?>
-		<input type="checkbox" name="public" value="1"  checked="yes"/> kryssa i för att publisera nu <br />
+		<input type="checkbox" name="public" value="1"  checked="yes"/> kryssa i för att publicera nu <br />
 		<?php
 	}
 	?>
