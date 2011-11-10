@@ -1,17 +1,27 @@
 <?php
-	$sql="SELECT * FROM comments";
+	$sql=sql_find_all("comments"); 
 	$result_comments = mysql_query($sql, $con) or die(mysql_error());
 	$all_rows = mysql_num_rows($result_comments); 
 
 	//väljer tabelen och sorteras efter descending id
+	
+	$sql=sql_find_all("blog_post"); 
+	$sql = mysql_query("SELECT * FROM blog_post") or die(mysql_error());
+	$num_rows = mysql_num_rows($sql);
+	echo "Det finns " .$num_rows. " inlägg och ". $all_rows. " kommentarer i databasen.<br /><br /><br />";
+
+	if (isset($_GET['pagenumber'])){
+	$startFromRow = ($_GET['pagenumber'] - 1) * 5; 
+	} 
+	else {
+	$startFromRow = 0;  
+	}
 	if(isset($_GET["cat"])){
-		$sql = mysql_query("SELECT * FROM blog_post LEFT JOIN user ON blog_post.idnamn = user.id WHERE category = $_GET[cat] ORDER BY blog_post.id DESC") or die(mysql_error());
+		$sql = mysql_query("SELECT * FROM blog_post LEFT JOIN user ON blog_post.idnamn = user.id WHERE category = $_GET[cat] ORDER BY blog_post.id DESC LIMIT $startFromRow, 5") or die(mysql_error());
 	}
 	else{
-		$sql = mysql_query("SELECT * FROM blog_post LEFT JOIN user ON blog_post.idnamn = user.id ORDER BY blog_post.id DESC") or die(mysql_error());
-		$num_rows = mysql_num_rows($sql);
-		echo "Det finns " .$num_rows. " inlägg i databasen och ". $all_rows. " kommentarer <br /><br /><br />";
-	}	
+		$sql = mysql_query("SELECT * FROM blog_post LEFT JOIN user ON blog_post.idnamn = user.id ORDER BY blog_post.id DESC LIMIT $startFromRow, 5") or die(mysql_error());
+			}	
 	//går igensom tabelen och skriver ut posterna
 	
 	
@@ -57,6 +67,12 @@
 			}
 		}
 		echo "<br/>";
-		echo "<hr size='1' color='#000000' width='75%'><br/>";
+		echo "<hr /><br/>";
 	}	
+	$page = "0";
+	for($i = 0; $i <= (($num_rows - 1) / 5); $i++){
+		$page = $i + 1;
+		echo "<a href=\"index.php?pagenumber=".$page."\"> ".$page."</a>";
+	}
+	
 ?>
