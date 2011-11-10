@@ -49,23 +49,24 @@
 				</form>
 				</td>
 				<td>
-	
 				<form action="update.php" method="post">
-	
 					<input name="redigera" type="hidden" value=<?php echo $result[0]; ?> />
 					<input type="submit" value="redigera"/>
 				</form>
 				</td>
 				<td>
-					<?php
-					echo"<a href=comments.php>Kommentera</a>";
-					?>
 				</td>
 				</tr>
 				</table>				
 				<?php
 			}
-		}
+		} 	
+		$table_name = "blog_post";
+		$id = $result[0];
+		$post = sql_find_by_id($table_name, $id); 
+		$result = mysql_query("SELECT * FROM comments WHERE blog_id = $id") or die(mysql_error());
+		$num_rows_comments = mysql_num_rows($result);
+		echo"<a href=comments.php?blog_id=".$id.">Kommentera ( " .$num_rows_comments. " )</a>";
 		echo "<br/>";
 		echo "<hr /><br/>";
 	}	
