@@ -2,8 +2,8 @@
  Made by Christoffer Älvenstrand, Mario Onekanda
  * */
 
-html, body {
-	background: url(../img/bg2.png);
+html {
+	background: url(../img/bg.png);
 	font-family: arial, sans-serif, serif;
 	font-size: 14px;
 }
@@ -96,7 +96,9 @@ article {
 .entries {
 	border-right: 1px solid black;
 	height: auto;
-	margin-left: 5px;
+	padding-left: 15px;
+	padding-right: 5px;
+	padding-top: 15px;
 	width: 700px;
 }
 

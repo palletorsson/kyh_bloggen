@@ -1,5 +1,5 @@
 <?php
-    $con = mysql_connect("localhost","root","inget1");
+    $con = mysql_connect("localhost","root","");
 		
 		//Fungerar inte anslutningen dödar vi den.
 	if (!$con)

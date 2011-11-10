@@ -41,7 +41,7 @@
 	
 	//går igensom databasen för att skiva ut alla inlägg
 		while($result = mysql_fetch_array($sql)) {		
-			echo $result["title"] . "<br/>";
+			echo "<h3>" . $result["title"] . "</h3>";
 			echo $result["post"] . " <br/>";
 			echo $result["datum"] . "<br/><br/>";
 			echo "<b>Av: " . $result["username"] . "<br/></b>";
@@ -82,7 +82,7 @@
 		$num_rows_comments = mysql_num_rows($result);
 		echo"<a href=comments.php?blog_id=".$id.">Kommentera ( " .$num_rows_comments. " )</a>";
 		echo "<br/>";
-		echo "<hr /><br/>";
+		echo "<br/><hr />";
 	}	
 	$page = "0";
 	for($i = 0; $i <= (($num_rows - 1) / 5); $i++){

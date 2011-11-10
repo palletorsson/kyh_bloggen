@@ -14,12 +14,15 @@
 	</nav> <!--här slutar nax -->
 		<div class="aside">
 			<?php include_once('include/script/categories.php');?>
-		</div><!-- här slutar categories -->
+		</div><!-- här slutar aside -->
 		<div class="entries">
 			<article>
-				<?php
-					include_once ('include/script/viewpost.php')
-				?>
+				<fieldset>
+					<legend>Startsidan</legend>
+						<?php
+							include_once ('include/script/viewpost.php')
+						?>	
+				</fieldset>
 			</article><!-- här slutar entrybox -->
 		</div><!-- här slutar entries -->
 </div><!-- här slutar wrapper -->

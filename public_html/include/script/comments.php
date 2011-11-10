@@ -27,10 +27,10 @@
 <fieldset>
   <legend>Skriv en kommentar: (Det finns <?php echo $all_rows; ?> kommentarer till posten) </legend>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>?blog_id=<?php echo $blog_post ?>" method="post" id="commentform">
-Ditt namn <input id="author" name="author" type="text" value="" size="30"/><br />
-Kommentar <textarea id="comment" name="body" cols="45" rows="8" ></textarea><br />
+Ditt namn: <input id="author" name="author" type="text" value="" size="30"/><br />
+Kommentar:<br /> <textarea id="comment" name="body" cols="45" rows="8" ></textarea><br />
 <input type='hidden' name='comment_post_ID' value="id" id='comment_post_ID' />
-<input type='hidden' name='id' value="<?php echo $blog_post; ?>" />
+<input type='hidden' name='id' value="<?php echo $blog_post; ?>" /><br />
 <input name="submit" type="submit" id="submit" value="Kommetera" /> <br />						
 </form> 
 </fieldset>
