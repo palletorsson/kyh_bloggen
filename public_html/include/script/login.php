@@ -1,5 +1,4 @@
 <?php 
-session_start();
 if (isset($_SESSION['session_user'])){
 ?>
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><input type='submit' name='logout' value='Logga ut'></form>
@@ -10,7 +9,6 @@ if (isset($_SESSION['session_user'])){
 	}
 }
 elseif (!isset($_POST['submit'])){
-
 ?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
  <table>
@@ -36,11 +34,6 @@ elseif (!isset($_POST['submit'])){
 
 <?php
 }
-//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
-    include_once ('dbconnect.php');
-	//väljer databasen	
-	mysql_select_db("scrummasterdb", $con);
-
 // check if the user and password is ok   
    function authenticate($username, $password) {
 	global $con;

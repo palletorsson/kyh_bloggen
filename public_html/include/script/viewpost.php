@@ -1,9 +1,4 @@
 <?php
-	session_start();
-	//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
-    include_once ('dbconnect.php');
-	//väljer databasen	
-	mysql_select_db("scrummasterdb", $con);
 	$sql="SELECT * FROM comments";
 	$result_comments = mysql_query($sql, $con) or die(mysql_error());
 	$all_rows = mysql_num_rows($result_comments); 
@@ -53,21 +48,15 @@
 				</td>
 				<td>
 					<?php
-
 					echo"<a href=comments.php>Kommentera</a>";
 					?>
-			
-					
 				</td>
 				</tr>
-				</table>
-				
+				</table>				
 				<?php
 			}
 		}
 		echo "<br/>";
 		echo "<hr size='1' color='#000000' width='75%'><br/>";
 	}	
-	//stänger serverkopplingen
-	mysql_close($con);
 ?>

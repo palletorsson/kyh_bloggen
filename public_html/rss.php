@@ -1,9 +1,6 @@
 <?php  
+include_once ('include/script/init.php');
 header('Content-Type: text/xml');  
-include_once ('include/script/dbconnect.php');
-
-mysql_select_db("scrummasterdb", $con);
- 
 echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>"  ?>
 <rss version="2.0">  
 <channel>  

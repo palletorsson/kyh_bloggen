@@ -1,18 +1,10 @@
 <?php
-	session_start();
-	include_once ('dbconnect.php');
-	mysql_select_db("scrummasterdb", $con);
 	$sql="SELECT * FROM categories";
 	$result = mysql_query($sql, $con) or die(mysql_error());
 	$row_cat = mysql_fetch_assoc($result);
 	//Här kommer posten att läggas till i databasen om en post är gjort
 	if (isset($_POST["post"]))
 	{
-		//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
-		$currenttime = date('Y-m-d H:i:s');
-
-	 
-		mysql_select_db("scrummasterdb", $con);
 		if (isset( $_SESSION['session_user'])) {
 			$tempUserName = $_SESSION['session_user'];
 			$sql="INSERT INTO blog_post (post, idnamn, title, category) VALUES ('$_POST[post]', '$tempUserName', '$_POST[title]', '$_POST[category]')";
@@ -27,9 +19,7 @@
 		  {
 		  die('Error: ' . mysql_error());
 		  }
-		echo "Nu är din post inlagd";
-		
-		mysql_close($con);
+		echo "Tack för ditt inlägg!";
 	}
 	
 	else {
@@ -47,12 +37,7 @@
     </select></span><br/>
 	<input type="submit" value="Publicera" class="submit" />
 	</form>
-</fieldset>
-
-
-	
-<?php
-	}
-?>
+</fieldset>	
+<?php } ?>
     
 
