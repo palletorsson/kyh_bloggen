@@ -1,3 +1,4 @@
+<?php include_once ('include/script/init.php'); ?>
 <!DOCTYPE HTML5>
 <html>
 <head>

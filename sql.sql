@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2011 at 01:48 PM
+-- Generation Time: Nov 10, 2011 at 11:21 AM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.2-1ubuntu4.9
 
@@ -35,14 +35,15 @@ CREATE TABLE IF NOT EXISTS `blog_post` (
   `category` int(4) NOT NULL,
   `datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `blog_post`
 --
 
 INSERT INTO `blog_post` (`id`, `title`, `post`, `idnamn`, `category`, `datum`) VALUES
-(1, '', 'ff', 0, 0, '0000-00-00 00:00:00');
+(1, 'mjau', 'ff', 0, 0, '0000-00-00 00:00:00'),
+(9, 'dsfaddss', 'hh', 5, 1, '2011-11-08 15:24:45');
 
 -- --------------------------------------------------------
 
@@ -61,9 +62,9 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `categori`) VALUES
-(1, 'Klagomål'),
-(2, 'Beröm'),
-(3, 'Önskemål'),
+(1, 'Klagom&aring;l'),
+(2, 'Ber&ouml;m'),
+(3, '&Ouml;nskem&aring;l'),
 (4, 'Snick-snack');
 
 -- --------------------------------------------------------
@@ -80,12 +81,18 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `body` text COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `blog_id` (`blog_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `comments`
 --
 
+INSERT INTO `comments` (`id`, `blog_id`, `created`, `author`, `body`) VALUES
+(5, 0, '0000-00-00 00:00:00', 'Tor', 'du e mad'),
+(4, 0, '0000-00-00 00:00:00', 'Pella', 'I rel'),
+(6, 0, '0000-00-00 00:00:00', 'hejj', 'dsf'),
+(7, 0, '0000-00-00 00:00:00', 'tu', 'hg'),
+(8, 0, '0000-00-00 00:00:00', '', '');
 
 -- --------------------------------------------------------
 

@@ -1,12 +1,10 @@
-
 <?
 	$blog_post = 0;
  if (isset($_GET["blog_id"])){
 	$blog_post = $_GET["blog_id"];
  }
-	include_once ('dbconnect.php');
-	mysql_select_db("scrummasterdb", $con);
-	$sql="SELECT * FROM comments WHERE blog_id = '$blog_post'";
+	$sql="SELECT * FROM comments 
+		  WHERE blog_id = '$blog_post'";
 	$result = mysql_query($sql, $con) or die(mysql_error());
 	$all_rows = mysql_num_rows($result); 
 	
@@ -15,8 +13,8 @@
 	if (isset($_POST["submit"]))
 	{
 		//Här ansluter vi till mysql med ip localhost och användarnamn root, inget lösenord än så länge.
-		mysql_select_db("scrummasterdb", $con);
-		$sql="INSERT INTO comments (author, body) VALUES ('$_POST[author]', '$_POST[body]')";
+		$sql="INSERT INTO comments (author, body) 
+			  VALUES ('$_POST[author]', '$_POST[body]')";
 		//som kommer att vara blogginläggen.
 		if (!mysql_query($sql,$con))
 		  {

@@ -1,6 +1,6 @@
 <?php 
-require_once('connection.php'); 
-mysql_select_db($database_db, $conn_db);
+// require_once('connection.php'); 
+// mysql_select_db($database_db, $conn_db);
 
 $debug = "false"; 
 

@@ -1,3 +1,4 @@
+<?php include_once('include/script/init.php'); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,18 +16,14 @@
 		<div class="entries">
 			<article class="entrybox">
 				<?php 				
-				include_once ('include/script/dbconnect.php');	
-				//Väljer databasen
-				mysql_select_db("scrummasterdb", $con);	
-				//Anropa en query som daderaR bort inlägget		
-				$sql ="DELETE FROM blog_post WHERE id = $_POST[radera]";
+				$sql ="	DELETE FROM blog_post 
+						WHERE id = $_POST[radera]";
 				if (!mysql_query($sql))
 		  		{
 		  			die('Error: ' . mysql_error());
 				}
 				echo "Nu har du raderat ett inlägg<br />";
-				echo "<a href=index.php>Tillbaka till startsida</a>";
-				mysql_close($con);  				
+				echo "<a href=index.php>Tillbaka till startsida</a>"; 				
 				?>
 			</article><!-- här slutar entrybox -->
 		</div><!-- här slutar entries -->
