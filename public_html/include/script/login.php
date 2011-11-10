@@ -10,28 +10,30 @@ if (isset($_SESSION['session_user'])){
 }
 elseif (!isset($_POST['submit'])){
 ?>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
- <table>
-   <tr>
-	 <td>Användarnamn:</td>
-	 <td>
-	   <input type="text" name="username" maxlength="30" placeholder="Användarnamn" />
-	 </td>
-   </tr>
-   <tr>
-	 <td>Lösenord:</td>
-	 <td>
-	   <input type="password" name="password" maxlength="30" placeholder="*******" />
-	 </td>
-   </tr>
-   <tr>
-	 <td colspan="2">
-	   <input type="submit" name="submit" value="Login" />
-	 </td>
-   </tr>
- </table>
-</form>
-
+<fieldset>
+	<legend>Logga in:</legend>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+		 <table>
+		   <tr>
+			 <td>Användarnamn:</td>
+			 <td>
+			   <input type="text" name="username" maxlength="30" placeholder="Användarnamn" />
+			 </td>
+		   </tr>
+		   <tr>
+			 <td>Lösenord:</td>
+			 <td>
+			   <input type="password" name="password" maxlength="30" placeholder="*******" />
+			 </td>
+		   </tr>
+		   <tr>
+			 <td colspan="2">
+			   <input type="submit" name="submit" value="Login" />
+			 </td>
+		   </tr>
+		 </table>
+		</form>
+</fieldset>	
 <?php
 }
 // check if the user and password is ok   
