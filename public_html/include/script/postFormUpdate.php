@@ -38,7 +38,7 @@ $result_c = mysql_query($sql, $con) or die(mysql_error());
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	Title <span class="title"><input type="text" name="title" value="<?php echo $row['title']; ?>"/></span><br />
 	Bloginnehåll <textarea name="post" cols="40" rows="12" style="resize: none;"><?php echo $row['post']; ?></textarea><br />
-	Kategori <span class="submit"> <select name="category" charset="UTF-8">
+	Kategori <span class="submit"> <select name="category">
 	<?php while ($row_cat = mysql_fetch_assoc($result_c)) {  ?>
     <option value="<?php echo $row_cat['id']; ?>" ><?php echo $row_cat['categori']; ?></option>
     <?php } // TODO add sellected value ?> 

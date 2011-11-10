@@ -30,7 +30,7 @@
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	Title <span class="title"><input type="text" name="title" /></span><br />
 	Bloginnehåll <textarea name="post" cols="40" rows="12" style="resize: none;" class="textarea" ></textarea><br />
-	Kategori <span class="submit"> <select name="category" charset="UTF-8">
+	Kategori <span class="submit"> <select name="category">
 	<?php	do {  ?>
     <option value="<?php echo $row_cat['id']?>" ><?php echo $row_cat['categori']?></option>
     <?php } while ($row_cat = mysql_fetch_assoc($result));?>
