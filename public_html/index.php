@@ -24,7 +24,7 @@
 		</div><!-- här slutar entries -->
 </div><!-- här slutar wrapper -->
 <footer class="footer">
-	<?php include_once ('include/script/footer.php'); ?>
+	Design by: ScrumMasters &copy;2011
 </footer><!-- här slutar footer -->
 </body>
 </html>
