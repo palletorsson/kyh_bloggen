@@ -2,16 +2,52 @@
  Made by Christoffer Älvenstrand, Mario Onekanda
  * */
 
-a { text-decoration: none; color: #00e; }
-a:visited { color: #551a8b; }
-a:hover { color: #06e; }
-a:focus { outline: thin dotted; }
-a:hover, a:active { outline: 0; }
-
 html, body {
 	background: url(../img/bg2.png);
 	font-family: arial, sans-serif, serif;
 	font-size: 14px;
+}
+
+a {
+	 text-decoration: none; color: #000; 
+}
+
+a:visited { color: #000;}
+a:hover { color: #000;}
+a:focus { outline: thin dotted;}
+a:hover, a:active { outline: 0;	text-decoration: underline;}
+
+hr {
+	size="1";
+	color= #000;
+	width= 100px;
+}
+
+footer p {
+	text-align: center
+}
+
+label {
+	width: 4em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block;
+}
+
+textarea {
+	border: 2px solid black
+}
+
+article {
+	background:#FFF;
+	color: #000;
+	height: auto;
+	width: 650px;
+}
+
+span {
+	float: right;
 }
 
 /* ==|== primary styles =========================================== */
@@ -58,38 +94,8 @@ html, body {
 	padding: 0px 0px 0px 0px;
 }
 
-.nav a:hover, active {
-	color: #FFF;
-	background: #000;
-}
-
 .clear {
 	clear: both;
-}
-
-
-.categories h1 {
-	color: #fff;
-	padding: 20px 5px 10px 7px;	
-}
-
-.categories ul {
-	padding: 0;
-	display: block;
-}	
-
-.categories li {
-	list-style: none;
-}
-
-.categories a {
-	color: #fff;
-	margin: 10px;
-	padding: 0px;	
-}
-.categories a:hover {
-	color: #FFF;
-	text-decoration: underline	
 }
 
 .entries {
@@ -113,13 +119,6 @@ html, body {
 	margin-right: 0px;
 }
 
-article {
-	background:#FFF;
-	color: #000;
-	height: auto;
-	width: 650px;
-}
-
 .aside {
 	background: #FFF;
 	color: #000;
@@ -135,35 +134,20 @@ article {
 	padding: 10px
 }
 
-footer p {
-	text-align: center
+input.submit {
+	padding: .7em;
+	margin:10px 86px
 }
-
-label
-{
-width: 4em;
-float: left;
-text-align: right;
-margin-right: 0.5em;
-display: block
-}
-
-textarea 
-{
-border: 2px solid black
-}
-
-input.submit 
-{
-padding: .7em;
-margin:10px 86px
-}
-.submit 
-{
-padding: .7em;
-margin:10px 16px
+.submit {
+	padding: .7em;
+	margin:10px 16px
 }
 
 .title {
-margin:10px 106px
+	margin:10px 106px
+}
+
+.right {
+	float: right;
+	color: #000;
 }
