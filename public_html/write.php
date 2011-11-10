@@ -22,7 +22,6 @@
 				?>
 			</div><!-- här slutar post-anonym -->
 		</div><!-- här slutar entries -->
-	</div><!-- här slutar container -->
 </div><!-- här slutar wrapper -->
 <footer class="footer">
 	Design by: ScrumMasters &copy;2011
