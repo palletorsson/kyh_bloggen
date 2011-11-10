@@ -45,10 +45,6 @@ article {
 	width: 650px;
 }
 
-span {
-	float: right;
-}
-
 /* ==|== primary styles =========================================== */
    
 .wrapper {
@@ -140,10 +136,6 @@ input.submit {
 .submit {
 	padding: .7em;
 	margin:10px 16px
-}
-
-.title {
-	margin:10px 106px
 }
 
 .right {

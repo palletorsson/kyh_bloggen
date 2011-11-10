@@ -13,15 +13,15 @@ elseif (!isset($_POST['submit'])){
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
  <table>
    <tr>
-	 <td>Username:</td>
+	 <td>Användarnamn:</td>
 	 <td>
-	   <input type="text" name="username" maxlength="30" value="username" />
+	   <input type="text" name="username" maxlength="30" placeholder="Användarnamn" />
 	 </td>
    </tr>
    <tr>
-	 <td>Password:</td>
+	 <td>Lösenord:</td>
 	 <td>
-	   <input type="password" name="password" maxlength="30" value="" />
+	   <input type="password" name="password" maxlength="30" placeholder="*******" />
 	 </td>
    </tr>
    <tr>
