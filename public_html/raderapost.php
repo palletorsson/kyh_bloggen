@@ -17,7 +17,7 @@
 			<article class="entrybox">
 				<?php 				
 				$sql ="	DELETE FROM blog_post 
-						WHERE id = $_POST[radera]";
+						WHERE id = $_POST[radera] LIMIT 1";
 				if (!mysql_query($sql))
 		  		{
 		  			die('Error: ' . mysql_error());

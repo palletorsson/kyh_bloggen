@@ -36,35 +36,17 @@ elseif (!isset($_POST['submit'])){
 </fieldset>	
 <?php
 }
-// check if the user and password is ok   
-   function authenticate($username, $password) {
-	global $con;
-    $username = mysql_real_escape_string($username);
-    $password = mysql_real_escape_string($password);
-	
-// Här väljer den värden ifrån tabellen users,  
-    $sql  = "SELECT * FROM user ";
-    $sql .= "WHERE username = '$username' ";
-    $sql .= "AND password = '$password' ";
-    $sql .= "LIMIT 1";
-    $result = mysql_query($sql, $con) or die(mysql_error());
-	
-	$row = mysql_fetch_assoc($result);
-	$username = $row['id'];
-	return $username; 
-    
-   }
 ?>
 <?php 
 if (isset($_POST['submit'])) { // Form has been submitted.
 	
  $username = trim($_POST['username']);
  $password = trim($_POST['password']);
-// Check database to see if username/password exist.
-   $found_user = authenticate($username, $password);
-  
-// check if  function authenticate got a name
 
+ // Check database to see if username/password exist whith funnction authenticate()
+ $found_user = authenticate($username, $password);
+  
+ // check if  function authenticate got a name and continue
  if ($found_user != NULL) {
 
 	$sql  = "SELECT * FROM user ";
@@ -81,12 +63,10 @@ if (isset($_POST['submit'])) { // Form has been submitted.
       echo $user . " now logged in ";
   
  } else {
-
     // username/password combo was not found in the database
-
     $message = "Username/password combination incorrect.";
     echo $message;  
-}
+ }
 } else { // Form has not been submitted.
 
  $username = "";

@@ -11,7 +11,7 @@
 	if (isset($_GET['cat'])){
 	$sql = mysql_query("SELECT * FROM categories WHERE id = $_GET[cat]") or die(mysql_error());
 	$cat_name = mysql_fetch_array($sql); 
-	echo "<h3>Kategori: ".$cat_name["categori"]." </h3><br />";  
+	echo "<h4>Kategori: ".$cat_name["categori"]." </h4>";  
 	}
 	else 
 	{

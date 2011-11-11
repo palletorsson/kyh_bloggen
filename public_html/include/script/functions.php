@@ -16,14 +16,8 @@ function sql_find_all($table_name) {
            mysql_real_escape_string($table_name));
 	return $sql;
 }
-// get the result
-function get_result($table_name) { 
-	$query = sql_find_all($table_name);
-	$result = result($query);
-return $result;  
-}
 
-// use this to get all rows
+// get all rows
 function all_rows($table_name) { 
 	$query = sql_find_all($table_name);
 	$result = result($query);
@@ -41,6 +35,7 @@ function sql_find_by_id($table_name, $id) {
 	return $sql;
 }
 
+// get row by id 
 function get_row_by_id($table_name, $id) { 
 	$query = sql_find_by_id($table_name, $id);
 	$result = result($query);
@@ -57,6 +52,7 @@ function sql_comments_on($blog_id) {
 	 return $sql;
 }
 
+// get comment on post
 function get_comments_on($blog_id) { 
 	$query = sql_comments_on($blog_id);
 	$result = result($query);
@@ -72,7 +68,7 @@ function sql_find_by_categories($category_id) {
 			mysql_real_escape_string($category_id)); 
 	 return $sql; 
 }
-
+// find by category
 function find_by_categories($category_id) { 
 	$query = sql_find_by_categories($category_id);
 	$result = result($query);
@@ -81,7 +77,7 @@ return $rows;
 }
 // update
 
-// delete
+// delete by id
  function delete($table_name, $id) {
   $sql = "DELETE FROM ".mysql_real_escape_string($table_name);
   $sql .= " WHERE id=". mysql_real_escape_string($id);
@@ -89,3 +85,22 @@ return $rows;
   return ($sql) ? true : false;
 }
 
+
+// check if the user and password is ok   
+   function authenticate($username, $password) {
+	global $con;
+    $username = mysql_real_escape_string($username);
+    $password = mysql_real_escape_string($password);
+	
+// Här väljer den värden ifrån tabellen users,  
+    $sql  = "SELECT * FROM user ";
+    $sql .= "WHERE username = '$username' ";
+    $sql .= "AND password = '$password' ";
+    $sql .= "LIMIT 1";
+    $result = mysql_query($sql, $con) or die(mysql_error());
+	
+	$row = mysql_fetch_assoc($result);
+	$username = $row['id'];
+	return $username; 
+    
+   }
