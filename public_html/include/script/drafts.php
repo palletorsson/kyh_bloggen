@@ -27,13 +27,13 @@
 	
 	//går igensom databasen för att skiva ut alla inlägg
 		while($result = mysql_fetch_array($sql)) {		
-			echo $result["title"] . "<br/>";
-			echo $result["post"] . " <br/>";
+			echo "<h4>Titel: ". $result["title"] . "</h4>";
+			echo "<h4>Post: </h4>". $result["post"]."<br/><br/>";;
 			echo $result["datum"] . "<br/><br/>";
 			echo "<b>Av: " . $result["username"] . "<br/></b>";
 			if (!$result["id"] == 0) {
-			echo "Email: " . $result["email"] . "<br/>";
-			echo "Hemsida: " . $result["website"] . "<br/>";
+			// echo "Email: " . $result["email"] . "<br/>";
+			// echo "Hemsida: " . $result["website"] . "<br/>";
 			}
 		
 			if (isset($_SESSION["session_user"])) {
