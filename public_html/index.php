@@ -18,7 +18,7 @@
 		<div class="entries">
 			<article>
 				<fieldset>
-					<legend>Startsidan</legend>
+					<legend>ScrumMasters</legend>
 						<?php
 							include_once ('include/script/viewpost.php')
 						?>	
@@ -27,7 +27,8 @@
 		</div><!-- här slutar entries -->
 </div><!-- här slutar wrapper -->
 <footer class="footer">
-	Design by: ScrumMasters &copy;2011
+	ScrumMasters <a href="index_fun.php">Doughnut</a> | 2011  
+	<?php mysql_close($con); ?>
 </footer><!-- här slutar footer -->
 </body>
 </html>

@@ -19,7 +19,7 @@ a:hover, a:active { outline: 0;	text-decoration: underline;}
 
 hr {
 	color: black;
-	width: 75%;
+	width: 95%;
 }
 
 footer p {
@@ -72,7 +72,7 @@ article {
 
 .nav ul {
 	margin: 0;
-	padding: 0;
+	padding: 10px;
 	display: block;
 }
 
@@ -83,6 +83,7 @@ article {
 }
 
 .nav a {
+	font-size:18px;
 	color: #000;
 	float: left;
 	margin: 0px 15px 0px 0px;
@@ -111,7 +112,7 @@ article {
 
 .post-anonym {
 	color: #000;
-	height: 450px;
+	height: 520px;
 	width: 700px;
 	margin-right: 0px;
 }
@@ -139,3 +140,22 @@ input.submit {
 	float: right;
 	color: #000;
 }
+h3 {
+font-size:28px;
+}
+
+h5 {
+position:relative;
+top:-26px;
+left:4px
+}
+
+.postbody {
+width:300px;
+}
+
+legend  {
+font-size:20px
+}
+
+

@@ -16,6 +16,14 @@ function sql_find_all($table_name) {
            mysql_real_escape_string($table_name));
 	return $sql;
 }
+// get the result
+function get_result($table_name) { 
+	$query = sql_find_all($table_name);
+	$result = result($query);
+return $result;  
+}
+
+// use this to get all rows
 function all_rows($table_name) { 
 	$query = sql_find_all($table_name);
 	$result = result($query);

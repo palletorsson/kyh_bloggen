@@ -29,7 +29,7 @@ $result_c = mysql_query($sql, $con) or die(mysql_error());
 		  }
 		echo "Nu har du uppdaterat posten";
 		} else {
-		// kolla vilken id som skickades tex 3 
+		// kolla vilken id som skickades 
 		$id = $_POST["redigera"];		
 		$sql = "SELECT * FROM blog_post 
 							WHERE id=$id
@@ -42,9 +42,9 @@ $result_c = mysql_query($sql, $con) or die(mysql_error());
   <legend>Uppdatera blogposten:</legend>
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-	Title <span class="title"><input type="text" name="title" value="<?php echo $row['title']; ?>"/></span><br />
-	Bloginnehåll <textarea name="post" cols="40" rows="12" style="resize: none;"><?php echo $row['post']; ?></textarea><br />
-	Kategori <span class="submit"> <select name="category">
+	<h4>Title</h4><span class="title"><input type="text" name="title" value="<?php echo $row['title']; ?>"/></span>
+	<h4>Bloginnehåll </h4><textarea name="post" cols="80" rows="12" style="resize: none;"><?php echo $row['post']; ?></textarea>
+	<h4>Kategori </h4><span class="submit"> <select name="category">
 	<?php while ($row_cat = mysql_fetch_assoc($result_c)) {  ?>
     <option value="<?php echo $row_cat['id']; ?>" ><?php echo $row_cat['categori']; ?></option>
     <?php } // TODO add sellected value ?> 
@@ -56,14 +56,15 @@ $result_c = mysql_query($sql, $con) or die(mysql_error());
 	}
     if(!$isPublic){
 		?>
-		<input type="checkbox" name="public" value="1"  checked="yes"/> kryssa i för att publicera nu <br />
+		kryssa i för att publicera nu <br /><input type="checkbox" name="public" value="1"  checked="yes"/> 
 		<?php
 	}
 	?>
 	<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 	<br/>
-	<input type="submit" value="Publicera"/>
+	<input type="submit" value="Uppdatera"/>
+
 </form>
 </fieldset>
 <?php } ?>
-    
+

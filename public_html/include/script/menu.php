@@ -9,12 +9,12 @@ $user = "";
 	}
 ?>
 <ul>
-	<li><a href="index.php">Startsida</a></li>
+	<li><a href="index.php">Hem</a></li>
 	<li><a href="write.php">Skriv Post</a></li>
 	<li><a href="loggin.php">Logga in/Logga ut</a></li>
 	<?php if (isset($_SESSION["session_user"])) { ?>
 	<li><a href="drafts.php">Draft</a></li>
+	<li class="right"><?php echo "Användare: ". $user. " "; ?></li>
 	<?php } ?>
-	<li class="right"><?php echo $user; ?></li>
 </ul>		
 	

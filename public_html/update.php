@@ -16,7 +16,7 @@
 			<?php include_once('include/script/categories.php');?>
 		</div><!-- här slutar aside -->
 		<div class="entries">
-			<div class="post-anonym"> Uppdatera
+			<div class="post-anonym">
 				<?php
 				include_once ('include/script/postFormUpdate.php');
 				?>
